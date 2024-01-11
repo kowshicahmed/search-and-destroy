@@ -46,3 +46,10 @@
 * we change the type while running cmake also
 	`cmake -D BUILD_SHARED_LIBS=TRUE .`
 	`make`
+
+# Tutorials
+* [CMake-constref-youtube](https://www.youtube.com/playlist?list=PLe51gEr18GGi5sRrgxoXclKjR4tXUz0lZ)
+* [Learning CMake Series-youtube](https://www.youtube.com/playlist?list=PL-UNXjSqcu61LEUuH5PIk2VOsnlaVhKju)
+
+
+
