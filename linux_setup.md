@@ -69,3 +69,32 @@
 	bash /home/akash/.sdkman/bin/sdkman-init.sh
 	sdk version
 	sdk install gradle
+
+## WSL GUI Setup 
+	# https://medium.com/@riley.kao/wsl2-ubuntu20-04-gui-remote-desktop-connection-rdp-2bbd21d2fa71
+ 	sudo apt update && sudo apt -y upgrade
+  	sudo apt-get install -y xfce4 xfce4-goodies
+   	sudo apt-get install xrdp
+	sudo cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak
+	sudo sed -i 's/3389/3390/g' /etc/xrdp/xrdp.ini
+	sudo sed -i 's/max_bpp=32/#max_bpp=32\nmax_bpp=128/g' /etc/xrdp/xrdp.ini
+	sudo sed -i 's/xserverbpp=24/#xserverbpp=24\nxserverbpp=128/g' /etc/xrdp/xrdp.ini
+ 	sudo nano /etc/xrdp/startwm.sh
+  
+  	# Comment the following two line as bellow
+  	test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+	exec /bin/sh /etc/X11/Xsession
+ 	# test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+	# exec /bin/sh /etc/X11/Xsession
+
+  	# Add the lines
+ 	# xce4
+	startxfce4
+
+ ## WSL GUI Start
+ 	sudo systemctl enable dbus
+	sudo /etc/init.d/dbus start
+	sudo /etc/init.d/xrdp start
+
+	# check xrdp status (optional)
+	sudo /etc/init.d/xrdp status
